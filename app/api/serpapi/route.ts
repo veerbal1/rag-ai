@@ -1,4 +1,3 @@
-import { fakeData } from '@/utils/fake-data';
 import { NextRequest, NextResponse } from 'next/server';
 import { getJson } from 'serpapi';
 

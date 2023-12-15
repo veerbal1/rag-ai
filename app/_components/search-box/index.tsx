@@ -33,6 +33,9 @@ function SearchBox({ onSubmit }: { onSubmit: (query: string) => void }) {
   // 2. Define a submit handler.
   function onFormSubmit(values: z.infer<typeof formSchema>) {
     onSubmit(values.query);
+    form.reset({
+      query: '',
+    });
   }
 
   return (

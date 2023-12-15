@@ -5,7 +5,6 @@ import PagesFetched from './_components/sources';
 import AnswerBox from './_components/answer-box';
 import useGoogleQuery from '@/hooks/useGoogleQueries';
 import useOpenAI from '@/hooks/useOpenAI';
-import { useEffect } from 'react';
 
 export default function Home() {
   const { loading: loadingAnswer, answer, summarize } = useOpenAI();
@@ -30,7 +29,7 @@ export default function Home() {
     <div className="w-screen h-screen max-w-screen-2xl flex items-center flex-col p-8 overflow-x-hidden mx-auto md:px-72">
       <SearchBox onSubmit={searchGoogle} />
       {googleQueryLoading ? (
-        'Loading ...'
+        <div>Loading ...</div>
       ) : (
         <>
           <QuestionTitle title={searchQuery} />
@@ -38,7 +37,11 @@ export default function Home() {
         </>
       )}
       {/* Searched pages */}
-      {loadingAnswer ? 'Loading Answer...' : <AnswerBox answer={answer} />}
+      {googleQueryLoading || loadingAnswer ? (
+        <div>Loading Answer...</div>
+      ) : (
+        <AnswerBox answer={answer} />
+      )}
     </div>
   );
 }
