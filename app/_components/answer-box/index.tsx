@@ -10,9 +10,12 @@ function AnswerBox({ answer }: { answer: string }) {
         Answer
       </h2>
       <div className="w-full min-w-0">
-        <p className="leading-normal break-words">
-          {answer || 'No answer found.'}
-        </p>
+        <p
+          className="leading-normal break-words"
+          dangerouslySetInnerHTML={{
+            __html: answer,
+          }}
+        ></p>
       </div>
     </div>
   );

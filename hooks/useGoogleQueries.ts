@@ -17,7 +17,6 @@ function useGoogleQuery({
       body: JSON.stringify({ query }),
     });
     const data = await res.json();
-    console.log(data);
     if (data.status === 'success') {
       setLoading(false);
       setData(data.data['organic_results']);

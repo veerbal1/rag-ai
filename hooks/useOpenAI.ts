@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const craftPrompt = (
   searchQuery: string,
@@ -10,12 +10,14 @@ const craftPrompt = (
 ) => {
   let query: string = `**Search Query:** ${searchQuery}`;
   links.forEach((link, i) => {
-    const linkInfo = `**Link ${i + 1}:** ${link.link}
-                      **Title:** ${link.title}
-                      **Snippet:** ${link.snippet} (Summarized)`;
+    const linkInfo = `
+                    ${link.snippet} (Summarized)
+                    
+                    `;
     query += linkInfo;
   });
-  query += `Please summarize the key points of this webpage, focusing on its relevance to the search query.`;
+  query += `Please this, focusing on its relevance to the search query.`;
+  return query;
 };
 
 function useOpenAI() {
@@ -33,9 +35,7 @@ function useOpenAI() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setLoading(false);
-        console.log('fetched answer', data.data.content);
         setAnswer(data.data.content);
       });
   };
