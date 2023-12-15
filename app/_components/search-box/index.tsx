@@ -39,7 +39,10 @@ function SearchBox({ onSubmit }: { onSubmit: (query: string) => void }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onFormSubmit)} className="space-y-8 flex gap-4">
+      <form
+        onSubmit={form.handleSubmit(onFormSubmit)}
+        className="space-y-8 flex gap-4"
+      >
         <FormField
           control={form.control}
           name="query"
@@ -47,7 +50,11 @@ function SearchBox({ onSubmit }: { onSubmit: (query: string) => void }) {
             <FormItem>
               <FormLabel>Query</FormLabel>
               <FormControl>
-                <Input className='w-72' placeholder="Ask anything..." {...field} />
+                <Input
+                  className="w-72"
+                  placeholder="Ask anything..."
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
