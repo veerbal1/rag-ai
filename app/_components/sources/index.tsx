@@ -2,6 +2,7 @@ import { FileTextIcon } from '@radix-ui/react-icons';
 import Card from './source-card';
 
 function PagesFetched({ data }: { data: unknown[] }) {
+  if (!data.length) return null;
   return (
     <div className="w-full mt-4">
       <h2 className="flex mt-10 items-center scroll-m-20 pb-2 text-xl font-light tracking-tight transition-colors first:mt-0 text-left w-full">

@@ -1,12 +1,17 @@
 import { fakeData } from '@/utils/fake-data';
 import { useState } from 'react';
 
-function useGoogleQuery() {
+function useGoogleQuery({
+  onSuccess,
+}: {
+  onSuccess: (data: unknown[]) => void;
+}) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<unknown[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const searchGoogle = async (query: string) => {
-    // setLoading(true);
+    setLoading(true);
     const res = await fetch('/api/serpapi', {
       method: 'POST',
       body: JSON.stringify({ query }),
@@ -16,6 +21,8 @@ function useGoogleQuery() {
     if (data.status === 'success') {
       setLoading(false);
       setData(data.data['organic_results']);
+      setSearchQuery(data.data.search_parameters.q);
+      onSuccess(data.data['organic_results']);
     } else {
       setLoading(false);
       setData([]);
@@ -24,7 +31,7 @@ function useGoogleQuery() {
 
   return {
     loading,
-    searchQuery: fakeData.search_parameters.q,
+    searchQuery,
     data,
     searchGoogle,
   };
