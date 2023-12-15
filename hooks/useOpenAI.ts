@@ -11,12 +11,13 @@ const craftPrompt = (
   let query: string = `**Search Query:** ${searchQuery}`;
   links.forEach((link, i) => {
     const linkInfo = `
+
                     ${link.snippet} (Summarized)
-                    
+
                     `;
     query += linkInfo;
   });
-  query += `Please this, focusing on its relevance to the search query.`;
+  query += `Please this, focusing on its relevance to the search query. Do not mention about search query, snippets etc.`;
   return query;
 };
 
