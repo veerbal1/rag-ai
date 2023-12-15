@@ -3,6 +3,7 @@ import SearchBox from './_components/search-box';
 import { useState } from 'react';
 import QuestionTitle from './_components/question-title';
 import PagesFetched from './_components/sources';
+import AnswerBox from './_components/answer-box';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -13,6 +14,8 @@ export default function Home() {
       <QuestionTitle title="What is AI?" />
       {/* Searched pages */}
       <PagesFetched />
+      {/* Answer */}
+      <AnswerBox />
     </div>
   );
 }

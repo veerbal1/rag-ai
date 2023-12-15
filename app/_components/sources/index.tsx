@@ -8,7 +8,7 @@ function PagesFetched() {
         <FileTextIcon className='mr-3 font-bold w-6 h-6'/>
         Resources
       </h2>
-      <div className="w-full flex gap-3 overflow-x-scroll">
+      <div className="w-full flex gap-3 overflow-x-scroll mt-2">
         <Card />
         <Card />
         <Card />

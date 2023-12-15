@@ -26,7 +26,7 @@ function SourceCard() {
         <div className="flex space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center">
             <img
-              className="mr-1 h-3 w-3"
+              className="mr-1 h-6 w-6"
               src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://wikipedia.org&size=128"
             />
             wikipedia
