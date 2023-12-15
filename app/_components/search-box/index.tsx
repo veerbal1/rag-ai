@@ -35,6 +35,7 @@ function SearchBox({ onSubmit }: { onSubmit: (query: string) => void }) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    onSubmit(values.query);
   }
 
   return (
