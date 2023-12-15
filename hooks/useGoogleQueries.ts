@@ -7,7 +7,7 @@ function useGoogleQuery() {
 
   const searchGoogle = async (query: string) => {
     // setLoading(true);
-    const res = await fetch('/api/search', {
+    const res = await fetch('/api/serpapi', {
       method: 'POST',
       body: JSON.stringify({ query }),
     });
