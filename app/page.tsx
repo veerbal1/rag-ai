@@ -1,7 +1,11 @@
+'use client';
 import { getSearchResults } from '@/utils/db';
-import Image from 'next/image';
+import SearchBox from './_components/search-box';
 
-export default async function Home() {
-  const results = await getSearchResults('san francisco');
-  return <div>{results.answer_box.snippet}</div>;
+export default function Home() {
+  return (
+    <div className="w-screen h-screen flex items-center flex-col p-8">
+      <SearchBox onSubmit={() => {}} />
+    </div>
+  );
 }
